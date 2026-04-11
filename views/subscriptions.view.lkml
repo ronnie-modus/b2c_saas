@@ -1,5 +1,5 @@
 view: subscriptions {
-  sql_table_name: public.subscriptions ;;
+  sql_table_name: artlist_demo.subscriptions ;;
 
   dimension: subscription_id {
     type: string
