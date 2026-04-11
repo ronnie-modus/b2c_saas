@@ -1,5 +1,5 @@
 view: payments {
-  sql_table_name: public.payments ;;
+  sql_table_name: artlist_demo.payments ;;
 
   dimension: payment_id {
     type: string
