@@ -1,5 +1,5 @@
 view: users {
-  sql_table_name: public.users ;;
+  sql_table_name: artlist_demo.users ;;
 
   dimension: user_id {
     type: string
