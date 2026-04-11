@@ -1,5 +1,5 @@
 view: dim_geo {
-  sql_table_name: public.dim_geo ;;
+  sql_table_name: artlist_demo.dim_geo ;;
 
   dimension: country_code {
     type: string
