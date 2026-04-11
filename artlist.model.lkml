@@ -8,6 +8,8 @@ datagroup: daily_refresh {
   max_cache_age: "24 hours"
 }
 
+# ── Raw table explores ────────────────────────────────────────────────────────
+
 explore: users {
   label: "Users & Subscriptions"
   description: "Full user journey — acquisition, profile, subscription, payments, churn"
@@ -97,4 +99,66 @@ explore: experiments {
     sql_on: ${users.country_code} = ${dim_geo.country_code} ;;
     relationship: many_to_one
   }
+}
+
+# ── Postgres view explores ────────────────────────────────────────────────────
+
+explore: v_users_enriched {
+  label: "Users enriched (view)"
+  description: "Flat user record with geo and profile — no joins needed"
+  persist_with: daily_refresh
+}
+
+explore: v_subscriptions_enriched {
+  label: "Subscriptions enriched (view)"
+  description: "Subscription + plan + user + geo in one row — Insights 2 & 9"
+  persist_with: daily_refresh
+}
+
+explore: v_payments_enriched {
+  label: "Payments enriched (view)"
+  description: "Revenue with VAT, geo, and plan context — Insight 7"
+  persist_with: daily_refresh
+}
+
+explore: v_funnel_by_channel {
+  label: "Funnel by channel (view)"
+  description: "Pre-aggregated funnel drop-off by channel, device, and week — Insights 1 & 3"
+  persist_with: daily_refresh
+}
+
+explore: v_event_volume_daily {
+  label: "Event volume daily (view)"
+  description: "Daily event counts by name and device — mobile tracking break detection (Insight 3)"
+  persist_with: daily_refresh
+}
+
+explore: v_feature_adoption_churn {
+  label: "Feature adoption & churn (view)"
+  description: "AI Collections early adoption vs churn outcome — Insights 4 & 9"
+  persist_with: daily_refresh
+}
+
+explore: v_monthly_cohorts {
+  label: "Monthly cohorts (view)"
+  description: "Registration cohorts with CVR, revenue, and seasonality — Insights 1, 5, 10"
+  persist_with: daily_refresh
+}
+
+explore: v_churn_signals_enriched {
+  label: "Churn signals enriched (view)"
+  description: "Churn signals with full plan, geo, and profile context — Insights 8 & 9"
+  persist_with: daily_refresh
+}
+
+explore: v_arpu_by_month {
+  label: "ARPU by month (view)"
+  description: "Plan mix, ARPU, and MRR trends over time — Insight 2"
+  persist_with: daily_refresh
+}
+
+explore: v_experiment_results {
+  label: "Experiment results (view)"
+  description: "Pre-aggregated A/B test CVR by variant and region"
+  persist_with: daily_refresh
 }
