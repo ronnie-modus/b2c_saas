@@ -1,5 +1,5 @@
 view: churn_signals {
-  sql_table_name: public.churn_signals ;;
+  sql_table_name: artlist_demo.churn_signals ;;
 
   dimension: signal_id {
     type: string
