@@ -1,5 +1,5 @@
 view: dim_campaigns {
-  sql_table_name: public.dim_campaigns ;;
+  sql_table_name: artlist_demo.dim_campaigns ;;
 
   dimension: campaign_id {
     type: string
