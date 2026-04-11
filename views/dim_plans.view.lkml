@@ -1,5 +1,5 @@
 view: dim_plans {
-  sql_table_name: public.dim_plans ;;
+  sql_table_name: artlist_demo.dim_plans ;;
 
   dimension: plan_id {
     type: string
