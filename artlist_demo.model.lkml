@@ -1,4 +1,4 @@
-connection: "artlist_postgres"
+connection: "b2c_saas"
 
 include: "/views/*.view.lkml"
 include: "/dashboards/*.dashboard.lookml"
